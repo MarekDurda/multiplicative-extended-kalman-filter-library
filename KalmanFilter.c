@@ -173,7 +173,7 @@ void kalman_correction_step(KalmanState *state, float mag_meas[3], float sun_mea
     memcpy(state->P_data, state->Temp_Mat1_data, 36*sizeof(float32_t));
 
 
-    // 5. INJEKCE CHYBY (Klíčový moment!)
+    // 5. INJEKCE CHYBY
 
     // A) Oprava Biasu
     for(int i=0; i<3; i++)
@@ -196,5 +196,6 @@ void kalman_correction_step(KalmanState *state, float mag_meas[3], float sun_mea
     Quaternion_normalize(&state->q0, &state->q0);
 
 }
+
 
 
