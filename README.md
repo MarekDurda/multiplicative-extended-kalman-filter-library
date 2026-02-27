@@ -30,9 +30,12 @@ kalman_init(&KF, dt);
 
 }
 
-// Create event for predict step
-kalman_predict_step(&KF, omega, dt);
+// Create event for predict step with given frequency
+TimerEvent1{
+  kalman_predict_step(&KF, omega, dt);
+}
 
-
-// Create loop for correction step
-kalman_correction_step(&KF, vector1, vector2);
+// Create event for correction step with given frequency
+TimerEvent2{
+  kalman_correction_step(&KF, vector1, vector2);
+}
