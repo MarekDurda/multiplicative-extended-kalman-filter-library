@@ -8,11 +8,6 @@ This repository contains a C implementation of a Multiplicative Extended Kalman 
 * **Sensor Fusion:** Fuses data from IMU sensors (Gyroscopes, Accelerometers, Magnetometers).
 * **Embedded-Optimized:** Written in standard C for stm32 architectures, arm_math library is used for matrix math operations
 
-## Mathematical Model
-The core of the MEKF relies on estimating the error state to update the global attitude quaternion. The state vector $x$ consists of the attitude quaternion $\mathbf{q}$ and the angular velocity $\mathbf{\omega}$:
-
-$$x = \begin{bmatrix} \mathbf{q} \\ \mathbf{\omega} \end{bmatrix}$$
-
 
 ## Usage Example
 Integration into an existing STM32 project is straightforward. Filter loop works in two steps prediction and correction. Prediction step should be triggered in dependece of time constant dt you choose. Then the prediction step could be trigered less often and should be tunned to your aplication. Here is basic structure filter loop 
